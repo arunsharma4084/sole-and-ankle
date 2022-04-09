@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -15,7 +15,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <MainColumn>
         <Header>
           <Title>Running</Title>
-          <Select
+          <Select 
             label="Sort"
             value={sortId}
             onChange={(ev) => setSortId(ev.target.value)}
@@ -25,7 +25,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
           </Select>
         </Header>
         <Spacer size={34} />
-        <ShoeGrid />
+        <ShoeGrid/>
       </MainColumn>
       <LeftColumn>
         <Breadcrumbs>
@@ -35,24 +35,39 @@ const ShoeIndex = ({ sortId, setSortId }) => {
             Shoes
           </Breadcrumbs.Crumb>
         </Breadcrumbs>
-        <Spacer size={42} />
+        <Spacer size={34} />
         <ShoeSidebar />
       </LeftColumn>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+`;
 
-const LeftColumn = styled.div``;
+const LeftColumn = styled.div`
+  padding-top: 14px;
+  width: 248px;
+`;
 
-const MainColumn = styled.div``;
-
-const Header = styled.header``;
+const MainColumn = styled.div`
+  flex: 1;
+  padding-left: 32px;
+`;
+ 
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 42px;
+`;
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
+  color: ${COLORS.gray[900]};
 `;
 
 export default ShoeIndex;

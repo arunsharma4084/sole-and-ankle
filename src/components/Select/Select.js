@@ -41,6 +41,7 @@ const VisibleLabel = styled.span`
 
 const SelectWrapper = styled.div`
   position: relative;
+  display: inline-block;
 `;
 
 const NativeSelect = styled.select`
